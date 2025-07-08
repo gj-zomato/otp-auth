@@ -9,6 +9,7 @@ import (
 var Ctx = context.Background()
 var Rdb *redis.Client
 
+// SetupRedis initializes the Redis client with default settings.
 func SetupRedis() {
 	Rdb = redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
