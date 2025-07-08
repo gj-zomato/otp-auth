@@ -8,12 +8,15 @@ import (
 	redis "github.com/redis/go-redis/v9"
 )
 
+// OTPRequest is used to request an OTP for a given identifier (email or phone).
 type AuthService struct{}
 
+// OTPRequest is used to request an OTP for a given identifier (email or phone).
 func generateOTP() string {
 	return fmt.Sprintf("%06d", rand.Intn(1000000))
 }
 
+// OTPVerify is used to verify the OTP for a given identifier.
 func (a *AuthService) RequestOTP(req OTPRequest, res *AuthResponse) error {
 	otp := generateOTP()
 	key := "otp:" + req.Identifier
@@ -31,6 +34,7 @@ func (a *AuthService) RequestOTP(req OTPRequest, res *AuthResponse) error {
 	return nil
 }
 
+// VerifyOTP checks the provided OTP against the stored OTP for the identifier.
 func (a *AuthService) VerifyOTP(req OTPVerify, res *AuthResponse) error {
 	key := "otp:" + req.Identifier
 	storedOTP, err := Rdb.Get(Ctx, key).Result()
