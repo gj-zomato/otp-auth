@@ -2,6 +2,7 @@ package auth
 
 type OTPRequest struct {
 	Identifier string
+	OTP        string
 }
 
 type OTPVerify struct {
