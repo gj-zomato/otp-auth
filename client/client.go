@@ -22,7 +22,7 @@ func main() {
 
 	reader := bufio.NewReader(os.Stdin)
 
-	// ✅ Phase 1: Ask for a valid identifier once
+	// Ask for a valid identifier once
 	var identifier string
 	for {
 		if idAttempts == 3 {
@@ -30,7 +30,7 @@ func main() {
 			return
 		}
 
-		fmt.Print("📧 Enter your email or phone: ")
+		fmt.Print("\n📧 Enter your email or phone: ")
 		identifier, _ = reader.ReadString('\n')
 		identifier = strings.TrimSpace(identifier)
 
@@ -53,7 +53,7 @@ func main() {
 		}
 	}
 
-	// ✅ Phase 2: OTP Verification
+	// OTP Verification
 	for {
 		if otpAttempts == 3 {
 			fmt.Println("❌ Too many attempts. Please try again later.")
