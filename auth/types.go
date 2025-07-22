@@ -1,5 +1,7 @@
 package auth
 
+type AuthService struct{}
+
 type OTPRequest struct {
 	Identifier string
 	OTP        string
