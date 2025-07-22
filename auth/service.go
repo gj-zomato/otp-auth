@@ -9,9 +9,6 @@ import (
 )
 
 // OTPRequest is used to request an OTP for a given identifier (email or phone).
-type AuthService struct{}
-
-// OTPRequest is used to request an OTP for a given identifier (email or phone).
 func generateOTP() string {
 	return fmt.Sprintf("%06d", rand.Intn(1000000))
 }
