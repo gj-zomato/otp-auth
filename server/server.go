@@ -15,11 +15,11 @@ func main() {
 	rpc.Register(new(auth.AuthService))
 
 	// Start the RPC server on port 1234
-	listener, err := net.Listen("tcp", ":1234")
+	listener, err := net.Listen("tcp", ":1235")
 	if err != nil {
 		log.Fatal("Listen error:", err)
 	}
-	log.Println("RPC server listening on port 1234")
+	log.Println("RPC server listening on port 1235")
 	defer listener.Close()
 
 	// Accept connections and serve them concurrently
