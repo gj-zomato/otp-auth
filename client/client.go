@@ -15,10 +15,11 @@ func main() {
 	var idAttempts, otpAttempts int
 
 	// Connect to the RPC server
-	client, err := rpc.Dial("tcp", "localhost:1234")
+	client, err := rpc.Dial("tcp", "localhost:1235")
 	if err != nil {
 		panic(err)
 	}
+	defer client.Close()
 
 	reader := bufio.NewReader(os.Stdin)
 
